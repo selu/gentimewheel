@@ -7,12 +7,12 @@ builder = Builder::XmlMarkup.new(indent: 2)
 builder.instruct! :xml
 builder.declare! :DOCTYPE, :svg, :PUBLIC, "-//W3C//DTD SVG 1.1//EN", "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"
 builder.svg(width:600, height:600) do |svg|
-  svg.g(transform:'translate(300,300)') do |g|
-    g.circle(r:250, fill:"white", stroke:"green", "stroke-width":3)
+  svg.g(transform:'translate(300,300)', stroke:"green", "stroke-width":3) do |g|
+    g.circle(r:250, fill:"white")
     24.times do |hour|
       g.g(transform:"rotate(#{15*hour}) translate(0,-250)") do |gh|
-        gh.line(y2: 10, stroke:"green", "stroke-width":3)
-        gh.text(hour, y:24, fill:"green", "text-anchor":"middle")
+        gh.line(y2: 10)
+        gh.text(hour, y:24, fill:"green", stroke:"none", "text-anchor":"middle")
       end
     end
   end
