@@ -5,7 +5,7 @@ require 'gentimewheel/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "gentimewheel"
-  spec.version       = Gentimewheel::VERSION
+  spec.version       = GenTimeWheel::VERSION
   spec.authors       = ["Szabolcs Seláf"]
   spec.email         = ["selu@selu.org"]
 
@@ -31,4 +31,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry"
   spec.add_runtime_dependency "builder"
   spec.add_runtime_dependency "tzinfo"
+  spec.add_runtime_dependency "methadone"
 end
