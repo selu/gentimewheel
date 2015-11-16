@@ -12,7 +12,7 @@ module GenTimeWheel
 
     builder.instruct! :xml
     builder.declare! :DOCTYPE, :svg, :PUBLIC, "-//W3C//DTD SVG 1.1//EN", "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"
-    builder.svg(width:SIZE, height:SIZE) do |svg|
+    builder.svg(width:SIZE, height:SIZE, "xmlns:xlink":"http://www.w3.org/1999/xlink") do |svg|
       radius = SIZE/2-10
       svg.g(transform:"translate(#{SIZE/2},#{SIZE/2})") do |g|
         zones.each do |zone|
