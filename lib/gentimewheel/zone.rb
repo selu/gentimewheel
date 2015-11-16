@@ -19,13 +19,15 @@ module GenTimeWheel
     def generate(svg, radius)
       svg.g(stroke:"green", "stroke-width":3) do |g|
         g.defs do |defs|
-          tradius = radius-35
+          tradius = radius-40
           defs.path(d:"M #{-tradius} 0 A #{tradius} #{tradius} 0 0,1 #{tradius} 0", id:"path#{@tz.name}")
         end
         g.circle(r:radius, fill:"white")
-        g.use("xlink:href":"#path#{@tz.name}", fill:"none", stroke:"red", "stroke-width":1)
-        g.text(fill:"black", stroke:"none") do |text|
-          text.textPath(label, "xlink:href":"#path#{@tz.name}")
+        g.text(x:0, y:0, transform:"rotate(#{-base_rotate})", "text-anchor":"middle", fill:"black", stroke:"none") do |text|
+          text.textPath(label, "xlink:href":"#path#{@tz.name}", startOffset:"50%")
+        end
+        g.text(x:0, y:0, transform:"rotate(#{180-base_rotate})", "text-anchor":"middle", fill:"black", stroke:"none") do |text|
+          text.textPath(label, "xlink:href":"#path#{@tz.name}", startOffset:"50%")
         end
         24.times do |hour|
           g.g(transform:"rotate(#{15*hour-base_rotate}) translate(0,#{-radius})") do |gh|
